@@ -6,9 +6,9 @@ module.exports = class DataArray {
    * @param {number} [options.limit] Предел кол-ва записей dataArray
    */
 
-  constructor({ limit = -1 } = {}, data=[[],[]]) {
-    this.limit = typeof limit=="number"?limit:-1;
-    this.data = data&&Array.isArray(data)&&data[0]&&data[1]?data:[[], []];
+  constructor({ limit = -1 } = {}, data = [[], []]) {
+    this.limit = typeof limit == "number" ? limit : -1;
+    this.data = data instanceof Array && data[0] && data[1] ? data : [[], []];
   }
 
   /**
@@ -35,6 +35,11 @@ module.exports = class DataArray {
     if (key != undefined && value != undefined) {
       let index = this.data[0].indexOf(key);
       if (index == -1) {
+        if (this.limit != -1 && this.data[0].length == this.limit) {
+          let error = TypeError(
+            "достигнут лимит записей для DataArray(" + this.limit + ")"
+          );
+        }
         index = this.data[0].length;
         this.data[0].push(key);
       }
@@ -45,26 +50,29 @@ module.exports = class DataArray {
       throw error;
     }
   }
-  
+
   /**
-  * Has 
-  * Проверяет наличие ключа в DataArray
-  * @param {any} key искомый ключ
-  * @return {boolean} Логическое значение, обозначающее наличие key в DataArray
-  */
-  
-  Has(key){
-    return this.data[0].indexOf(key)!=-1
+   * Has
+   * Проверяет наличие ключа в DataArray
+   * @param {any} key искомый ключ
+   * @return {boolean} Логическое значение, обозначающее наличие key в DataArray
+   */
+
+  Has(key) {
+    return this.data[0].indexOf(key) != -1;
   }
-  
+
   /**
-  * Remove
-  * Удалить элемент под ключом из DataArray
-  * @param {any} key ключ удаляемого элемента
-  * @return {any} удаленный элемент
-  */
-  
-  Remove(key){
-    
+   * Remove
+   * Удалить элемент под ключом из DataArray
+   * @param {any} key ключ удаляемого элемента
+   * @return {any} удаленный элемент
+   */
+
+  Remove(key) {
+    if(this.data[0].indexOf(key)!=-1){
+      
+    }else
+      return null
   }
 };
