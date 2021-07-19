@@ -7,7 +7,7 @@ module.exports = class DataArray {
    */
 
   constructor({ limit = -1 } = {}) {
-    this.limit = limit;
+    this.limit = typeof limit=="number"?limit:-1;
     this.data = [[], []];
   }
 
