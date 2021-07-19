@@ -3,9 +3,10 @@
   "version": "0.0.1",
   "description": "A simple Node app built on fastify, instantly up and running.",
   "main": "index.js",
-  "dependencies": {
-    
+  "scripts": {
+    "start": "node index.js"
   },
+  "dependencies": {},
   "engines": {
     "node": "12.x"
   },

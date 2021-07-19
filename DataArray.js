@@ -1,10 +1,14 @@
 class DataArray{
   
   /**
-  * Конструктор 
+  * Конструктор DataArray
+  * @constructor
+  * @param {object} [options] Опции dataArray
+  * @param {number} [options.limit] Предел кол-ва записей dataArray
   */
   
-  constructor(data,options = {limit:-1}){
+  constructor(options = {limit:-1}){
+    console.log(options)
     this.data = [[],[]]
   }
   
@@ -19,3 +23,5 @@ class DataArray{
     return this.data[1][this.data[0].indexOf(key)]||null
   }
 }
+
+console.log(new DataArray({}))
