@@ -78,4 +78,10 @@ module.exports = class DataArray {
     }else
       return null
   }
+  
+  Filter(expression){
+    if(typeof expression != "function"){let erorr= TypeError("Неверное выражение")
+    let copy = this.data.slice()
+    copy[1].forEach((el,ind)=>{})
+  }
 };
