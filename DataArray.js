@@ -71,7 +71,10 @@ module.exports = class DataArray {
 
   Remove(key) {
     if(this.data[0].indexOf(key)!=-1){
-      
+      let index = this.data[0].indexOf(key)
+      this.data[0].splice(index,1)
+      let deleted = this.data[1].splice(index,1)
+      return deleted[0]
     }else
       return null
   }

@@ -12,11 +12,16 @@ DataArray.js :
 let x = new first()
 
 
-for(let i = 0; i<10000;i++){
+/*for(let i = 0; i<10000;i++){
  x.Set(i,i)
 }
 let starts = Date.now()
-console.log(x.Has(9999))
-console.log(Date.now()-starts+"ms")
 
+console.log(Date.now()-starts+"ms")
+*/
+x.Set("1","1")
+x.Set("2","2")
+console.log(x.Remove("2"))
+x.Remove("1")
+console.log(x.data)
 // В душе не ебу как 
