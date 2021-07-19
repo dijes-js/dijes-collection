@@ -8,16 +8,17 @@ DataArray.js :
 10000 get = ~5ms
 
 10000 has = ~ 20ms
+10000 filter = ~ 600ms
+10000 map = ~ 30ms
 */
-let x = new first()
-
+//let x = new first()
 
 //for(let i = 0; i<10000;i++){
-// x.Set(i,i)
+// x.Set(i,{text:i})
 //}
+
 //let starts = Date.now()
 
 //console.log(Date.now()-starts+"ms")
 
-console.log(x.data)
 // В душе не ебу как 

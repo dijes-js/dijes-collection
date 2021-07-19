@@ -70,29 +70,37 @@ module.exports = class DataArray {
    */
 
   Remove(key) {
-    if(this.data[0].indexOf(key)!=-1){
-      let index = this.data[0].indexOf(key)
-      this.data[0].splice(index,1)
-      let deleted = this.data[1].splice(index,1)
-      return deleted[0]
-    }else
-      return null
+    if (this.data[0].indexOf(key) != -1) {
+      let index = this.data[0].indexOf(key);
+      this.data[0].splice(index, 1);
+      let deleted = this.data[1].splice(index, 1);
+      return deleted[0];
+    } else return null;
   }
-  
-  Filter(expression){
-    if(typeof expression != "function"){let error= TypeError("Неверное выражение")
-    throw error}
+
+  Filter(expression) {
+    if (typeof expression != "function") {
+      let error = TypeError("Неверное выражение");
+      throw error;
+    }
     let copy = this.data.slice(),
-        deletabel=[]
-    copy[1]=copy[1].filter((el,ind)=>{
-      if(!expression(el)){
-        deletabel.push(ind)
-        return false
-      }else 
-        return true
-    })
-    copy[0]=copy[0].filter((el,ind)=>!deletabel.includes(ind))
-    
-    return new DataArray({},copy)
+      deletabel = [];
+    copy[1] = copy[1].filter((el, ind) => {
+      if (!expression(el)) {
+        deletabel.push(ind);
+        return false;
+      } else return true;
+    });
+    copy[0] = copy[0].filter((el, ind) => !deletabel.includes(ind));
+
+    return new DataArray({}, copy);
+  }
+
+  Map(func) {
+    if (typeof func != "function") {
+      let error = TypeError("Указанный аргумент должен являться функцией");
+      throw error;
+    }
+    return new DataArray({}, [this.data[0], this.data[1].map(func)]);
   }
 };
