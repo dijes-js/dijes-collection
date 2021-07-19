@@ -1,40 +1,18 @@
-// в dataarray.js 
 let first = require("./DataArray.js")
 
 let x = new first()
 
-//открой DataArray.js, комментарии я вроде там мне убирал
-/// Эта че? (Get)  ты дятел? это типы вводимых аргументов указаны, any - любой,
-// "key", "value", в js не нужно прописывать аргемент, который ты задаешь, они идут по порядку
-//(названия методов с заглавных) третий рагумент здесь игнорируется
-//А че так?) а зачем он?
+let starts = Date.now()
 
-
-//x.Set("Mother", "XXX")
-//console.log(x.Has("XXX"))
-
-//x.Set("XXX", "MOTHER")
-//console.log(x.Get(["XXx"]))//только 1 аргумент
-
-//x.Set(NaN, NaN)
-//console.log(x.Has(NaN))
-
-
-//x.Set(Infinity, NaN)
-//console.log(x.Get(Infinity))
-
-
-///А если я найду баг, что мне перепадет?)))))))
-//могу побладогарить, но если хочешь, выдам и пиздюлей
-//Понятно
-
-console.log
-for(let i = 0; i<100;i++){
- x.Set(i,i+10)
+for(let i = 0; i<10000;i++){
+ x.Set(i,i)
 }
 
-//У меня 3 по матеше, мне можно
-// 
-//ошибка в консоли
-//Аргумент я указал...
-// вывод в консоль - console.log(...)
+console.log(Date.now()-starts+"ms")
+
+
+console.log(x.Set(require("./DataArray.js")))
+
+console.log(x.constructor())
+
+//ибо нехуй
