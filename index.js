@@ -1,2 +1,4 @@
 // в dataarray.js 
-require("./DataArray.js")
+let first = require("./DataArray.js")
+
+new first().Set()

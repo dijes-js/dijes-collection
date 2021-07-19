@@ -1,4 +1,4 @@
-class DataArray{
+module.exports=class DataArray{
   
   /**
   * Конструктор DataArray
@@ -7,9 +7,9 @@ class DataArray{
   * @param {number} [options.limit] Предел кол-ва записей dataArray
   */
   
-  constructor(options = {limit:-1}){
-    console.log(options)
-    this.data = [[],[]]
+  constructor({limit=-1}={}){
+    this.limit = limit;
+    this.data = [[],[]];
   }
   
   /**
@@ -20,8 +20,16 @@ class DataArray{
   */
   
   Get(key){
-    return this.data[1][this.data[0].indexOf(key)]||null
+    if(key)
+    return this.data[1][this.data[0].indexOf(key)]||null;
+    else return null;
+  }
+  
+  Set(key,value){
+    if(key!=undefined&&value!=undefined){
+      
+    } else {
+      let er = TypeError("key или value не были предоставлены")
+    }
   }
 }
-
-console.log(new DataArray({}))
