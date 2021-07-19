@@ -1,18 +1,22 @@
 let first = require("./DataArray.js")
+/*
+DataArray.js :
+10000 create = ~780ms
+500 = ~15ms
+100 = ~7ms
 
+10000 get = ~5ms
+
+
+*/
 let x = new first()
 
-let starts = Date.now()
 
 for(let i = 0; i<10000;i++){
  x.Set(i,i)
 }
-
+let starts = Date.now()
+console.log(x.Get(9999))
 console.log(Date.now()-starts+"ms")
 
-
-console.log(x.Set(require("./DataArray.js")))
-
-console.log(x.constructor())
-
-//ибо нехуй
+// В душе не ебу как сломать
