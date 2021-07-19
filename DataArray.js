@@ -2,7 +2,7 @@ module.exports = class DataArray {
   /**
    * Конструктор DataArray
    * @constructor
-   * @param {object} [options] Опции dataArray
+   * @param {object} [options] Опции DataArray
    * @param {number} [options.limit] Предел кол-ва записей dataArray
    */
 
@@ -24,7 +24,7 @@ module.exports = class DataArray {
   }
 
   /**
-   * Get
+   * Set
    * Задает значение указанного ключа
    * @param {any} key ключ элемента
    * @param {any} value новое значение ключа
@@ -55,5 +55,16 @@ module.exports = class DataArray {
   
   Has(key){
     return this.data[0].indexOf(key)!=-1
+  }
+  
+  /**
+  * Remove
+  * Удалить элемент под ключом из DataArray
+  * @param {any} key ключ удаляемого элемента
+  * @return {any} удаленный элемент
+  */
+  
+  Remove(key){
+    
   }
 };
