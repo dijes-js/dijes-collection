@@ -80,8 +80,19 @@ module.exports = class DataArray {
   }
   
   Filter(expression){
-    if(typeof expression != "function"){let erorr= TypeError("Неверное выражение")
-    let copy = this.data.slice()
-    copy[1].forEach((el,ind)=>{})
+    if(typeof expression != "function"){let error= TypeError("Неверное выражение")
+    throw error}
+    let copy = this.data.slice(),
+        deletabel=[]
+    copy[1]=copy[1].filter((el,ind)=>{
+      if(!expression(el)){
+        deletabel.push(ind)
+        return false
+      }else 
+        return true
+    })
+    copy[0]=copy[0].filter((el,ind)=>!deletabel.includes(ind))
+    
+    return new DataArray({},copy)
   }
 };
