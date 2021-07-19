@@ -54,6 +54,6 @@ module.exports = class DataArray {
   */
   
   Has(key){
-    return this.data[0].includes(key)
+    return this.data[0].indexOf(key)!=-1
   }
 };

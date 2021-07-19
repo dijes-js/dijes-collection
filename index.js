@@ -7,7 +7,7 @@ DataArray.js :
 
 10000 get = ~5ms
 
-
+10000 has = ~ 20ms
 */
 let x = new first()
 
@@ -16,7 +16,7 @@ for(let i = 0; i<10000;i++){
  x.Set(i,i)
 }
 let starts = Date.now()
-console.log(x.Get(9999))
+console.log(x.Has(9999))
 console.log(Date.now()-starts+"ms")
 
-// В душе не ебу как сломать
+// В душе не ебу как 
