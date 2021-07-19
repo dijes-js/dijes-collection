@@ -27,9 +27,16 @@ module.exports=class DataArray{
   
   Set(key,value){
     if(key!=undefined&&value!=undefined){
-      
+      let index = this.data[0].indexOf(key)
+      if(index==-1){
+        index = this.data[0].length
+        this.data[0].push(key)
+      }
+      this.data[1][index]=value
+      return {[key]:value}
     } else {
-      let er = TypeError("key или value не были предоставлены")
+      let error = TypeError("key или value не были предоставлены")
+      throw error
     }
   }
 }
