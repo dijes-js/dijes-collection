@@ -6,9 +6,9 @@ module.exports = class DataArray {
    * @param {number} [options.limit] Предел кол-ва записей dataArray
    */
 
-  constructor({ limit = -1 } = {}) {
+  constructor({ limit = -1 } = {}, data=[[],[]]) {
     this.limit = typeof limit=="number"?limit:-1;
-    this.data = [[], []];
+    this.data = data&&Array.isArray(data)&&data[0]&&data[1]?data:[[], []];
   }
 
   /**
