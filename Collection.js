@@ -219,7 +219,8 @@ module.exports = class DataArray {
 
   /**
   * find
-  * 
+  * Поиск первого элемента соответствующего условию func
+  
   */
   
   find(func) {

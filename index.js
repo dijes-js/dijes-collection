@@ -1,1 +1,1 @@
-exports = require("./Collection.js")
+module.exports = require("./Collection.js")

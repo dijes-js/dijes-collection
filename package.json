@@ -1,6 +1,6 @@
 {
   "name": "dijes-collection",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Light and powerfull Collection utility for the Dijes JavaScript Library",
   "main": "index.js",
   "scripts": {
