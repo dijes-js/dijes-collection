@@ -1,18 +1,15 @@
 {
   "name": "dijes-collection",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Light and powerfull Collection utility for the Dijes JavaScript Library",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "devDependencies": {
-    "@discordjs/collection": "^0.1.6"
-  },
   "engines": {
     "node": "12.x"
   },
-  "keywords":"Collection, Dijes",
+  "keywords":["collection", "Dijes", "dijes", "dijes.js"],
   "repository": {
     "type":"git",
     "url":"https://github.com/Dijes-js/dijes-Collection"
@@ -21,4 +18,3 @@
   "license": "GPL-3.0",
   "author":"catinchair"
 }
-
