@@ -163,7 +163,7 @@ module.exports = class DataArray {
   
   /**
   * first
-  * Возвращает amount первых элементов
+  * Берет amount первых элементов
   * @param {number} amount Количество элементов
   * @return {array|*} Возвращает amount первых элементов
   */
@@ -179,7 +179,8 @@ module.exports = class DataArray {
   
   /**
   * random
-  * Возвращает случайный элемент коллекции
+  * Берет случайный элемент коллекции
+  * @return {*} Возвращает случайный элемент коллекции
   */
   
   random() {
@@ -189,6 +190,13 @@ module.exports = class DataArray {
     return elements[0];
   }
 
+  /**
+  * last
+  * Берет amount последних элементов из коллекции
+  * @param {number} amount Количество элементов
+  * @return {*|array} Возвращает amount последних элементов коллекции
+  */
+  
   last(amount = 1) {
     amount = amount > 0 ? amount : 1;
     let elements = this.data[1]
@@ -198,11 +206,22 @@ module.exports = class DataArray {
       return elements;
     } else return elements[0];
   }
+  
+  /**
+  * size
+  * Количество элементов коллекции
+  * @return {number} Возвращает кол-во элементов в коллекции
+  */
 
   size() {
     return this.data[0].length;
   }
 
+  /**
+  * find
+  * 
+  */
+  
   find(func) {
     if (typeof func != "function") {
       let error = TypeError("Указанный аргумент должен являться функцией");
