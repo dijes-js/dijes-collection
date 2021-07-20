@@ -125,7 +125,12 @@ module.exports = class DataArray {
     return new DataArray({}, [this.data[0], this.data[1].map(func)]);
   }
   
-  
+  /**
+  * To
+  * Преобразование DataArray в Map или исходный массив
+  * @param {map|*} type Выходной формат данных
+  * @return {map|array} Преобразованный DataArray
+  */
 
   to(type = Map) {
     if (type == Map) {
