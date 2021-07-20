@@ -103,28 +103,37 @@ module.exports = class DataArray {
     }
     return new DataArray({}, [this.data[0], this.data[1].map(func)]);
   }
-  
-  To(type=Map){
-    if(type==Map){
-      let map = new Map()
-      this.data[0].forEach((el,ind)=>map.set(el,this.data[1][ind]))
-      return map
-    }else{return this.data}
+
+  To(type = Map) {
+    if (type == Map) {
+      let map = new Map();
+      this.data[0].forEach((el, ind) => map.set(el, this.data[1][ind]));
+      return map;
+    } else {
+      return this.data;
+    }
   }
-  
-  Clear(){
-    this.data=[[],[]]
+
+  Clear() {
+    this.data = [[], []];
   }
-  
-  Clone(){
-    return new DataArray({},this.data)
+
+  Clone() {
+    return new DataArray({}, this.data);
   }
-  
-  First(amount=1){
-    amount=amount>0?amount:1
-    let elements = this.data[1].slice().splice(0,amount)
-    if(amount>1){
-      return elements
-      } else return elements[0]
+
+  First(amount = 1) {
+    amount = amount > 0 ? amount : 1;
+    let elements = this.data[1].slice().splice(0, amount);
+    if (amount > 1) {
+      return elements;
+    } else return elements[0];
+  }
+  Random(amount = 1) {
+    amount = typeof amount == "number" ? amount : Number(amount)?Number(amount):1;
+    let elements = this.data[1].slice().splice(Math.floor(Math.random()*this.data[0].length), amount);
+    if (amount > 1) {
+      return elements;
+    } else return elements[0];
   }
 };
