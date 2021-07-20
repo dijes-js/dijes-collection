@@ -15,11 +15,17 @@ let x = new first(),
 
 for(let i = 0; i<10000;i++){
  x.set(i,{text:i})
-  //f.set(i,{text:i})
+  f.set(i,{text:i})
+}
+let results = []
+for(let i = 0;i<100;i++){
+let starts = Date.now()
+
+let l = f.set(9999,99999)
+
+results.push(Date.now()-starts)
 }
 
-let starts = Date.now()
-console.log(x.last(5))
-console.log(Date.now()-starts+"ms")
-
-// В душе не ебу как 
+console.log(eval(results.join("+"))/results.length)
+//console.log(x.last(5))
+// душе н
