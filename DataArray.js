@@ -84,6 +84,13 @@ module.exports = class DataArray {
       return deleted[0];
     } else return null;
   }
+  
+  /**
+  * Filter
+  * Фильтрация элементов dataArray
+  * @param {function} expression Функция, определяющая правила фильтрации
+  * @return {DataArray} Возвращает отфильтрованный DataArray
+  */
 
   filter(expression) {
     if (typeof expression != "function") {
@@ -102,6 +109,13 @@ module.exports = class DataArray {
 
     return new DataArray({}, copy);
   }
+  
+  /**
+  * Map
+  * Видоизменение элементов DataArray
+  * @param {function} func Функция, выполняющаяся над каждым элементов DataArray
+  * @return {DataArray} Возвращает новый DataArray, в котором все над всеми элементами была выполнена func
+  */
 
   map(func) {
     if (typeof func != "function") {
@@ -110,6 +124,8 @@ module.exports = class DataArray {
     }
     return new DataArray({}, [this.data[0], this.data[1].map(func)]);
   }
+  
+  
 
   to(type = Map) {
     if (type == Map) {
@@ -134,7 +150,8 @@ module.exports = class DataArray {
     let elements = this.data[1].slice().splice(0, amount);
     if (amount > 1) {
       return elements;
-    } else return elements[0];
+    } else 
+      return elements[0];
   }
   random() {
     let elements = this.data[1]
