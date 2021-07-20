@@ -28,4 +28,3 @@ results.push(Date.now()-starts)
 
 console.log(eval(results.join("+"))/results.length)
 //console.log(x.last(5))
-// душе н
