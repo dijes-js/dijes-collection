@@ -1,5 +1,5 @@
 {
-  "name": "dijes-Collection",
+  "name": "dijes-collection",
   "version": "0.0.1",
   "description": "Light and powerfull Collection utility for the Dijes JavaScript Library",
   "main": "index.js",
