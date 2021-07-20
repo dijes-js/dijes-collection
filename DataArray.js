@@ -2,8 +2,8 @@ module.exports = class DataArray {
   /**
    * Конструктор DataArray
    * @constructor
-   * @param {object} [options] Опции DataArray
-   * @param {number} [options.limit] Предел кол-ва записей dataArray
+   * @property {object} [options] Опции DataArray
+   * @property {number} [options.limit] Предел кол-ва записей dataArray
    */
 
   constructor({ limit = -1 } = {}, data = [[], []]) {
@@ -14,8 +14,8 @@ module.exports = class DataArray {
   /**
    * Get
    * Возвращает значение под ключом key
-   * @param {any} key ключ элемента
-   * @return {any} Значение, закрепленное за key
+   * @param {*} key ключ элемента
+   * @return {*} Значение, закрепленное за key
    */
 
   Get(key) {
@@ -26,8 +26,8 @@ module.exports = class DataArray {
   /**
    * Set
    * Задает значение указанного ключа
-   * @param {any} key ключ элемента
-   * @param {any} value новое значение ключа
+   * @param {*} key ключ элемента
+   * @param {*} value новое значение ключа
    * @return {object} Возвращает объект, содержащий новое значение ключа
    */
 
@@ -54,7 +54,7 @@ module.exports = class DataArray {
   /**
    * Has
    * Проверяет наличие ключа в DataArray
-   * @param {any} key искомый ключ
+   * @param {*} key искомый ключ
    * @return {boolean} Логическое значение, обозначающее наличие key в DataArray
    */
 
@@ -65,8 +65,8 @@ module.exports = class DataArray {
   /**
    * Remove
    * Удалить элемент под ключом из DataArray
-   * @param {any} key ключ удаляемого элемента
-   * @return {any} удаленный элемент
+   * @param {*} key ключ удаляемого элемента
+   * @return {*} удаленный элемент
    */
 
   Remove(key) {
@@ -110,5 +110,21 @@ module.exports = class DataArray {
       this.data[0].forEach((el,ind)=>map.set(el,this.data[1][ind]))
       return map
     }else{return this.data}
+  }
+  
+  Clear(){
+    this.data=[[],[]]
+  }
+  
+  Clone(){
+    return new DataArray({},this.data)
+  }
+  
+  First(amount=1){
+    amount=amount>0?amount:1
+    let elements = this.data[1].slice().splice(0,amount)
+    if(amount>1){
+      return elements
+      } else return elements[0]
   }
 };
