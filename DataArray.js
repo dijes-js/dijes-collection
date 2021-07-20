@@ -8,7 +8,7 @@ module.exports = class DataArray {
 
   constructor({ limit = -1 } = {}, data = [[], []]) {
     this.limit = typeof limit == "number" ? limit : -1;
-    this.data = data instanceof Array && data[0] && data[1] ? data : [[], []];
+    this.data = data instanceof Array && data[0] && data[1] &&data[0] instanceof Array && data[1] instanceof Array? data : [[], []];
   }
 
   /**
@@ -37,7 +37,7 @@ module.exports = class DataArray {
       if (index == -1) {
         if (this.limit != -1 && this.data[0].length == this.limit) {
           let error = TypeError(
-            "достигнут лимит записей для DataArray(" + this.limit + ")"
+            "Достигнут лимит записей для DataArray(" + this.limit + ")"
           );
         }
         index = this.data[0].length;
@@ -59,7 +59,7 @@ module.exports = class DataArray {
    */
 
   has(key) {
-    return this.data[0].indexOf(key) != -1;
+    return this.data[0].includes(key);
   }
 
   /**
