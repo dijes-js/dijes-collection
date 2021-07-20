@@ -1,8 +1,8 @@
-dependencies:
+devDependencies:
   '@discordjs/collection': 0.1.6
 packages:
   /@discordjs/collection/0.1.6:
-    dev: false
+    dev: true
     resolution:
       integrity: sha512-utRNxnd9kSS2qhyivo9lMlt5qgAUasH2gb7BEOn6p0efFh24gjGomHzWKMAPn2hEReOPQZCJaRKoURwRotKucQ==
 registry: 'https://registry.npmjs.org/'
