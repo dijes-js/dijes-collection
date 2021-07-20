@@ -18,7 +18,7 @@ module.exports = class DataArray {
    * @return {*} Значение, закрепленное за key
    */
 
-  Get(key) {
+  get(key) {
     if (key) return this.data[1][this.data[0].indexOf(key)] || null;
     else return null;
   }
@@ -31,7 +31,7 @@ module.exports = class DataArray {
    * @return {object} Возвращает объект, содержащий новое значение ключа
    */
 
-  Set(key, value) {
+  set(key, value) {
     if (key != undefined && value != undefined) {
       let index = this.data[0].indexOf(key);
       if (index == -1) {
@@ -58,7 +58,7 @@ module.exports = class DataArray {
    * @return {boolean} Логическое значение, обозначающее наличие key в DataArray
    */
 
-  Has(key) {
+  has(key) {
     return this.data[0].indexOf(key) != -1;
   }
 
@@ -69,7 +69,7 @@ module.exports = class DataArray {
    * @return {*} удаленный элемент
    */
 
-  Remove(key) {
+  remove(key) {
     if (this.data[0].indexOf(key) != -1) {
       let index = this.data[0].indexOf(key);
       this.data[0].splice(index, 1);
@@ -78,7 +78,7 @@ module.exports = class DataArray {
     } else return null;
   }
 
-  Filter(expression) {
+  filter(expression) {
     if (typeof expression != "function") {
       let error = TypeError("Неверное выражение");
       throw error;
@@ -96,7 +96,7 @@ module.exports = class DataArray {
     return new DataArray({}, copy);
   }
 
-  Map(func) {
+  map(func) {
     if (typeof func != "function") {
       let error = TypeError("Указанный аргумент должен являться функцией");
       throw error;
@@ -104,7 +104,7 @@ module.exports = class DataArray {
     return new DataArray({}, [this.data[0], this.data[1].map(func)]);
   }
 
-  To(type = Map) {
+  to(type = Map) {
     if (type == Map) {
       let map = new Map();
       this.data[0].forEach((el, ind) => map.set(el, this.data[1][ind]));
@@ -114,26 +114,39 @@ module.exports = class DataArray {
     }
   }
 
-  Clear() {
+  clear() {
     this.data = [[], []];
   }
 
-  Clone() {
+  clone() {
     return new DataArray({}, this.data);
   }
 
-  First(amount = 1) {
+  first(amount = 1) {
     amount = amount > 0 ? amount : 1;
     let elements = this.data[1].slice().splice(0, amount);
     if (amount > 1) {
       return elements;
     } else return elements[0];
   }
-  Random(amount = 1) {
-    amount = typeof amount == "number" ? amount : Number(amount)?Number(amount):1;
-    let elements = this.data[1].slice().splice(Math.floor(Math.random()*this.data[0].length), amount);
+  random() {
+    let elements = this.data[1]
+      .slice()
+      .splice(Math.floor(Math.random() * this.data[0].length), 1);
+    return elements[0];
+  }
+
+  last(amount = 1) {
+    amount = amount > 0 ? amount : 1;
+    let elements = this.data[1]
+      .slice()
+      .splice(this.data[0].length - 1 - amount, amount);
     if (amount > 1) {
       return elements;
     } else return elements[0];
+  }
+  
+  size(){
+    return this.data[0].length
   }
 };
