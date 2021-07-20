@@ -39,12 +39,12 @@ module.exports = class DataArray {
    */
 
   set(key, value) {
-    if (key != undefined && value != undefined) {
+    if (key && value) {
       let index = this.data[0].indexOf(key);
       if (index == -1) {
         if (this.limit != -1 && this.data[0].length == this.limit) {
           let error = TypeError(
-            "Достигнут лимит записей для DataArray(" + this.limit + ")"
+            "Достигнут лимит записей для коллекции(" + this.limit + ")"
           );
         }
         index = this.data[0].length;
@@ -53,7 +53,7 @@ module.exports = class DataArray {
       this.data[1][index] = value;
       return { [key]: value };
     } else {
-      let error = TypeError("key или value не были предоставлены");
+      let error = TypeError("key или value не были определены");
       throw error;
     }
   }
@@ -77,7 +77,7 @@ module.exports = class DataArray {
    */
 
   remove(key) {
-    if (this.data[0].indexOf(key) != -1) {
+    if (this.data[0].includes(key)) {
       let index = this.data[0].indexOf(key);
       this.data[0].splice(index, 1);
       let deleted = this.data[1].splice(index, 1);
@@ -98,14 +98,14 @@ module.exports = class DataArray {
       throw error;
     }
     let copy = this.data.slice(),
-      deletabel = [];
+      deletable = [];
     copy[1] = copy[1].filter((el, ind) => {
       if (!expression(el)) {
-        deletabel.push(ind);
+        deletable.push(ind);
         return false;
       } else return true;
     });
-    copy[0] = copy[0].filter((el, ind) => !deletabel.includes(ind));
+    copy[0] = copy[0].filter((el, ind) => !deletable.includes(ind));
 
     return new DataArray({}, copy);
   }
