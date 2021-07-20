@@ -1,3 +1,5 @@
-class Collection extends Map{
+class Collection {
   
 }
+
+module.exports = Collection

@@ -14,14 +14,14 @@ let x = new first(),
     f=new coll()
 
 for(let i = 0; i<10000;i++){
- x.set(i,{text:i})
+  x.set(i,{text:i})
   f.set(i,{text:i})
 }
 let results = []
 for(let i = 0;i<100;i++){
 let starts = Date.now()
 
-let l = f.set(9999,99999)
+let l = x.map((e)=>e.text)
 
 results.push(Date.now()-starts)
 }
