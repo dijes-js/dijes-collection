@@ -103,4 +103,12 @@ module.exports = class DataArray {
     }
     return new DataArray({}, [this.data[0], this.data[1].map(func)]);
   }
+  
+  To(type=Map){
+    if(type==Map){
+      let map = new Map()
+      this.data[0].forEach((el,ind)=>map.set(el,this.data[1][ind]))
+      return map
+    }else{return this.data}
+  }
 };
