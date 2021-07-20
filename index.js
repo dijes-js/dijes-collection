@@ -16,7 +16,7 @@ for(let i = 0; i<10000;i++){
 }
 
 let starts = Date.now()
-console.log(x.To(Map).size)
+console.log(x.First(5))
 console.log(Date.now()-starts+"ms")
 
 // В душе не ебу как 
