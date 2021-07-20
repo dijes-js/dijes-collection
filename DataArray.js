@@ -8,7 +8,14 @@ module.exports = class DataArray {
 
   constructor({ limit = -1 } = {}, data = [[], []]) {
     this.limit = typeof limit == "number" ? limit : -1;
-    this.data = data instanceof Array && data[0] && data[1] &&data[0] instanceof Array && data[1] instanceof Array? data : [[], []];
+    this.data =
+      data instanceof Array &&
+      data[0] &&
+      data[1] &&
+      data[0] instanceof Array &&
+      data[1] instanceof Array
+        ? data
+        : [[], []];
   }
 
   /**
@@ -145,8 +152,16 @@ module.exports = class DataArray {
       return elements;
     } else return elements[0];
   }
-  
-  size(){
-    return this.data[0].length
+
+  size() {
+    return this.data[0].length;
+  }
+
+  find(func) {
+    if (typeof func != "function") {
+      let error = TypeError("Указанный аргумент должен являться функцией");
+      throw error;
+    }
+    return this.data[1].find(func) 
   }
 };

@@ -1,18 +1,19 @@
 {
   "name": "dijes/Collection",
   "version": "0.0.1",
-  "description": "A simple Node app built on fastify, instantly up and running.",
+  "description": "Light and powerfull Collection utility for the Dijes JavaScript Library",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
-  "dependencies": {
+  "devDependencies": {
     "@discordjs/collection": "^0.1.6"
   },
   "engines": {
     "node": "12.x"
   },
   "repository": {
-    "url": ""},
-  "license": "MIT"
+    "url": ""
+  },
+  "license": "GPL-3.0"
 }
