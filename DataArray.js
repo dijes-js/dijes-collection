@@ -1,9 +1,9 @@
 module.exports = class DataArray {
   /**
-   * Конструктор DataArray
+   * Конструктор коллекции
    * @constructor
-   * @property {object} [options] Опции DataArray
-   * @property {number} [options.limit] Предел кол-ва записей dataArray
+   * @property {object} [options] Опции коллекции
+   * @property {number} [options.limit] Предел кол-ва записей коллекции
    */
 
   constructor({ limit = -1 } = {}, data = [[], []]) {
@@ -19,7 +19,7 @@ module.exports = class DataArray {
   }
 
   /**
-   * Get
+   * get
    * Возвращает значение под ключом key
    * @param {*} key ключ элемента
    * @return {*} Значение, закрепленное за key
@@ -31,7 +31,7 @@ module.exports = class DataArray {
   }
 
   /**
-   * Set
+   * set
    * Задает значение указанного ключа
    * @param {*} key ключ элемента
    * @param {*} value новое значение ключа
@@ -59,10 +59,10 @@ module.exports = class DataArray {
   }
 
   /**
-   * Has
-   * Проверяет наличие ключа в DataArray
+   * has
+   * Проверяет наличие ключа в коллекции
    * @param {*} key искомый ключ
-   * @return {boolean} Логическое значение, обозначающее наличие key в DataArray
+   * @return {boolean} Логическое значение, обозначающее наличие key в коллекции
    */
 
   has(key) {
@@ -70,10 +70,10 @@ module.exports = class DataArray {
   }
 
   /**
-   * Remove
-   * Удалить элемент под ключом из DataArray
+   * remove
+   * Удалить элемент под ключом из коллекции
    * @param {*} key ключ удаляемого элемента
-   * @return {*} удаленный элемент
+   * @return {*} Удаленный элемент
    */
 
   remove(key) {
@@ -86,10 +86,10 @@ module.exports = class DataArray {
   }
   
   /**
-  * Filter
-  * Фильтрация элементов dataArray
+  * filter
+  * Фильтрация элементов коллекции
   * @param {function} expression Функция, определяющая правила фильтрации
-  * @return {DataArray} Возвращает отфильтрованный DataArray
+  * @return {DataArray} Возвращает отфильтрованную коллекцию
   */
 
   filter(expression) {
@@ -111,10 +111,10 @@ module.exports = class DataArray {
   }
   
   /**
-  * Map
-  * Видоизменение элементов DataArray
-  * @param {function} func Функция, выполняющаяся над каждым элементов DataArray
-  * @return {DataArray} Возвращает новый DataArray, в котором все над всеми элементами была выполнена func
+  * map
+  * Видоизменение элементов коллекции
+  * @param {function} func Функция, выполняющаяся над каждым элементов коллекции
+  * @return {DataArray} Возвращает новую коллекцию, в котором все над всеми элементами была выполнена func
   */
 
   map(func) {
@@ -126,10 +126,10 @@ module.exports = class DataArray {
   }
   
   /**
-  * To
-  * Преобразование DataArray в Map или исходный массив
+  * to
+  * Преобразование коллекции в Map или исходный массив
   * @param {map|*} type Выходной формат данных
-  * @return {map|array} Преобразованный DataArray
+  * @return {map|array} Преобразованная коллекция
   */
 
   to(type = Map) {
@@ -142,13 +142,31 @@ module.exports = class DataArray {
     }
   }
 
+  /**
+  * clear
+  * Очистка коллекции
+  */
+  
   clear() {
     this.data = [[], []];
   }
+  
+  /**
+  * clone
+  * Клонирование коллекции
+  * @return {DataArray} Возвращает копию коллекции
+  */
 
   clone() {
     return new DataArray({}, this.data);
   }
+  
+  /**
+  * first
+  * Возвращает amount первых элементов
+  * @param {number} amount Количество элементов
+  * @return {array|*} Возвращает amount первых элементов
+  */
 
   first(amount = 1) {
     amount = amount > 0 ? amount : 1;
@@ -158,6 +176,12 @@ module.exports = class DataArray {
     } else 
       return elements[0];
   }
+  
+  /**
+  * random
+  * Возвращает случайный элемент коллекции
+  */
+  
   random() {
     let elements = this.data[1]
       .slice()
