@@ -231,4 +231,19 @@ module.exports = class DataArray {
     }
     return this.data[1].find(func) 
   }
+  
+  /**
+  * forEach
+  * Перебор и вызов функции со всеми элементами массива
+  * @param {function} func Функция перебора
+  */
+  
+  forEach(func){
+    if(typeof func != "function"){
+      let error = TypeError("Указанный аргумент должен явдяться функцией")
+      throw error
+    }
+    this.data[1].forEach(func)
+  }
+  
 };
