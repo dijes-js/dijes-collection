@@ -26,7 +26,7 @@ module.exports = class DataArray {
    */
 
   get(key) {
-    if (key) return this.data[1][this.data[0].indexOf(key)] || null;
+    if (key) return this.data[1][this.data[0].indexOf(key)];
     else return null;
   }
 
