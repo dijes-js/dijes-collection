@@ -246,4 +246,15 @@ module.exports = class DataArray {
     this.data[1].forEach(func)
   }
   
+  /**
+  * every
+  * Проверка всех элементов массива
+  * @param {function} func Функция проверки элементов
+  * @return {boolean} Логическое значение, обозначающее удовлетворяют ли все элементы коллекции условию func
+  */
+  
+  every(func){
+    
+  }
+  
 };
