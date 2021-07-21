@@ -1,13 +1,13 @@
 {
   "name": "dijes-collection",
-  "version": "0.0.4",
+  "version": "0.0.7",
   "description": "Light and powerfull Collection utility for the Dijes JavaScript Library",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
-    "node": "12.x"
+    "node": ">=12.0.0"
   },
   "keywords":["collection", "Dijes", "dijes", "dijes.js"],
   "repository": {
